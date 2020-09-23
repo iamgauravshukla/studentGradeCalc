@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Student Grade Calculator</title>
+		<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="main">
+				<div class="main-left">
+					<div id="strip">
+						
+						
+						<h2 id="name">STUDENT<br>GRADE<br>CALCULATOR</h2>
+					</div>
+					
+				</div>
+				<div class="main-right">
+					<form action="">
+						<input type="text" class="subject" id="mt" placeholder="Maths"><br>
+						<input type="text" class="subject" id="phy" placeholder="Physics"><br>
+						<input type="text" class="subject" id="chm" placeholder="Chemistry"><br>
+						<input type="text" class="subject" id="com" placeholder="Computer"><br>
+						<input type="button" name="" class="sub" value="SHOW GRADE" onclick="clacy()">
+						<p id="data" class="result"></p>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			const clacy = () =>{
+				let mt = document.getElementById('mt').value;
+				let phy = document.getElementById('phy').value;
+				let chm = document.getElementById('chm').value;
+				let com = document.getElementById('com').value;
+				let grades = '';
+				let total = parseFloat(mt)+parseFloat(phy)+parseFloat(chm)+parseFloat(com);
+				let per = (total/400)*100;
+				if(per<=100 && per>=80){
+					grades = 'A';
+				}
+				else if(per<=79 && per>=60){
+					grades = 'B';
+				}
+				else if(per<=59 && per>=40){
+					grades = 'C';
+				}
+				else{
+					grades = 'F';
+				}
+				if(per>=39){
+					document.getElementById('data').innerHTML = `Out of 400 your total marks is ${total} and percentage is ${per}%. <br>Grade is ${grades} Congratulations you are Pass.`;
+				}
+				else{
+					document.getElementById('data').innerHTML = `Out of 400 your total marks is ${total} and percentage is ${per}%. <br>Grade is ${grades} need to study hard you are Fail`;
+				}
+			};
+		</script>
+		
+	</body>
+</html>
